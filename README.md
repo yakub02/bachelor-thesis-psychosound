@@ -1,0 +1,3 @@
+**Bachelor Thesis**
+
+Web Application for Music Event Ticket Management Using Flask, React, and Cryptography his project focuses on the development of a web application for a music project that facilitates event ticket sales, utilizing a Flask backend and a React frontend. The website includes booking pages, a photo gallery, and a hidden subpage featuring encrypted communication. The objective is to create an independent ticketing portal, enhance data security, and practically apply knowledge of Python, React, and cryptography. The outcome will be a fully functional application for event management and secure internal communication.
