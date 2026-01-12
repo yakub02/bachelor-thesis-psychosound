@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react'
 import PillNav from '@/components/ui/PillNav'
 import psychosound_logo from '@/assets/psychosound_logo.svg'
-/**
- * Navigation items
- */
+
 const NAV_ITEMS = [
   { label: 'Artists', href: '#artists' },
   { label: 'Gallery', href: '#gallery' },
@@ -11,15 +9,6 @@ const NAV_ITEMS = [
   { label: 'Releases', href: '#releases' },
 ]
 
-/**
- * PSYCHOSOUND Navbar using PillNav component
- * 
- * Features:
- * - GSAP-powered pill hover animations
- * - Active section tracking on scroll
- * - Responsive mobile hamburger menu
- * - Cyber/hacker aesthetic with neon green
- */
 interface NavbarProps {
   className?: string
 }
@@ -62,8 +51,7 @@ export function Navbar({ className = '' }: NavbarProps) {
         items={NAV_ITEMS}
         activeHref={activeHref}
         
-        // Cyber/Hacker color scheme
-        baseColor="#d4d4d4"            // Neon green - logo bg & hover circles
+        baseColor="#d4d4d4"            
         pillColor="#0a0a0a"            // Near-black - pill backgrounds
         hoveredPillTextColor="#0a0a0a" // Neon green - text on hover
         pillTextColor="#d4d4d4"        // Light gray - default text
