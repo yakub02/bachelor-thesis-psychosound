@@ -1,20 +1,24 @@
+  import { BrowserRouter, Routes, Route } from 'react-router-dom'
+  import { AuthProvider } from '@/context/AuthContext'
   import { Container } from '@/components/layout/Container'
   import { Navbar } from '@/components/layout/Navbar'
   import DecryptedText from '@/components/ui/DecryptedText'
   import FaultyTerminal from './components/ui/FaultyTerminal'
   import InfiniteEventSlider from '@/components/slider/InfiniteEventSlider'
-  import { sampleEvents } from '@/data/sampleEvents' 
+  import { sampleEvents } from '@/data/sampleEvents'
   import GlassSurface from './components/ui/GlassSurface'
+  import AdminLogin from '@/pages/AdminLogin'
+  import AdminDashboard from '@/pages/AdminDashboard'
 
-  function App() {
+  function HomePage() {
     return (
       <div className="min-h-screen bg-black text-white selection:bg-green-500/30">
         <div className="fixed top-0 w-full z-50">
           <Navbar />
         </div>
-        <div className="relative w-full h-screen">
-          
-          <div className="fixed inset-0 z-0 w-full h-full">
+        <div className="relative w-full h-screen sm:h-[100dvh] overflow-hidden">
+
+          <div className="absolute inset-0 z-0 w-full h-full max-h-screen sm:max-h-[100dvh]">
             <FaultyTerminal
               scale={2.9}
               digitSize={1.2}
@@ -34,15 +38,15 @@
             />
           </div>
 
-          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none">
-      
+          <div className="absolute inset-0 z-10 flex flex-col items-center justify-center pointer-events-none px-4">
+
             <GlassSurface
             width="auto"
             height="auto"
             borderRadius={100}
             borderWidth={20}
-            backgroundOpacity={0.1}
-            saturation={1}
+            backgroundOpacity={0.5}
+            saturation={0.5}
             brightness={50}
             opacity={0.93}
             blur={11}
@@ -51,12 +55,12 @@
             redOffset={0}
             greenOffset={10}
             blueOffset={20}
-            className="p-3 px-7"
+            className="p-3 px-4 md:px-7"
             >
-              <h1 className="text-xl md:text-6xl font-medium tracking-tight hover:text-green-200 transition-colors">PSYCHOSOUND</h1>
+              <h1 className="text-2xl sm:text-4xl md:text-6xl font-medium tracking-tight hover:text-green-200 transition-colors">PSYCHOSOUND</h1>
 
             </GlassSurface>
-            
+
           </div>
         </div>
 
@@ -91,6 +95,20 @@
         </div>
 
       </div>
+    )
+  }
+
+  function App() {
+    return (
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/admin/login" element={<AdminLogin />} />
+            <Route path="/admin/dashboard" element={<AdminDashboard />} />
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
     )
   }
 
